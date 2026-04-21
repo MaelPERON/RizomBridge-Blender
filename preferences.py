@@ -11,7 +11,8 @@ class RB_Preferences(bpy.types.AddonPreferences):
     rizom_path: bpy.props.StringProperty(  # type: ignore
         name="RizomUV Path",
         subtype="FILE_PATH",
-        description="Path to the RizomUV executable"
+        description="Path to the RizomUV executable",
+        default="C:/Program Files/Rizom Lab/RizomUV 2025.0/rizomuv.exe"
     )
 
     export_folder: bpy.props.StringProperty(  # type: ignore
