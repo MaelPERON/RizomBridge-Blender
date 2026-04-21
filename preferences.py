@@ -62,13 +62,3 @@ class RB_Preferences(bpy.types.AddonPreferences):
         layout.prop(self, "save_before_export")
         layout.prop(self, "forward_axis")
         layout.prop(self, "up_axis")
-
-
-def register() -> None:
-    """Register preferences class."""
-    bpy.utils.register_class(RB_Preferences)
-
-
-def unregister() -> None:
-    """Unregister preferences class."""
-    bpy.utils.unregister_class(RB_Preferences)

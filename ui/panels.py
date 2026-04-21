@@ -41,13 +41,3 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
             "wm.url_open",
             text="Project Info"
         ).url = "https://github.com/MaelPERON/RizomBridge-Blender"
-
-
-def register() -> None:
-    """Register UI classes."""
-    bpy.utils.register_class(RB_VIEW3D_PT_RizomBridge_Main)
-
-
-def unregister() -> None:
-    """Unregister UI classes."""
-    bpy.utils.unregister_class(RB_VIEW3D_PT_RizomBridge_Main)
