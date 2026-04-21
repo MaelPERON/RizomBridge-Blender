@@ -1,12 +1,15 @@
+# Based on original work by Renaux Alexandre (@sky-ark)
+# Forked and maintained by MaelPERON
+
 bl_info = {
     "name": "ENSI Tool Addon",
     "description": "A simple tool to export objects to RizomUV",
-    "author": "Renaux Alexandre",
+    "author": "MaelPERON",
     "version": (0, 1, 0),
     "blender": (4, 2, 1),
     "category": "Import-Export",
     "location": "View3D > Sidebar",
-    "doc_url": "https://github.com/sky-ark/ENSI_TOOL/tree/master",
+    "doc_url": "https://github.com/MaelPERON/RizomBridge-Blender",
 }
 
 import bpy

@@ -1,0 +1,28 @@
+schema_version = "1.0.0"
+
+id = "ensi_tool_addon"
+version = "0.1.0"
+type = "add-on"
+
+maintainer = "MaelPERON"
+original_author = "Renaux Alexandre (@sky-ark)"
+name = "ENSI Tool Addon"
+tagline = "A simple tool to export objects to RizomUV"
+description = "Export Blender objects to RizomUV for UV unwrapping"
+
+blender_version_min = "4.2.1"
+
+permissions = []
+
+resources = {
+    "homepage": "https://github.com/MaelPERON/RizomBridge-Blender",
+    "bug_tracker": "https://github.com/MaelPERON/RizomBridge-Blender/issues",
+    "source_code": "https://github.com/MaelPERON/RizomBridge-Blender",
+}
+
+tags = [
+    "Import-Export",
+    "UV",
+    "RizomUV",
+    "3D",
+]
