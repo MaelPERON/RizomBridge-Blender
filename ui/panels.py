@@ -1,6 +1,7 @@
 """UI panels for RizomBridge addon."""
 
 import bpy
+from ..utils.preferences import get_preferences
 
 
 class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
@@ -15,8 +16,7 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
     def draw(self, context: bpy.types.Context) -> None:
         """Draw the main tool panel."""
         layout = self.layout
-        addon_name = __package__.split('.')[0]
-        prefs = context.preferences.addons[addon_name].preferences
+        prefs = get_preferences()
 
         # Display configuration options
         layout.label(text="Configuration")

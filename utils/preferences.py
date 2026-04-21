@@ -4,7 +4,9 @@ import bpy
 
 
 def get_addon():
-    return bpy.context.preferences.addons[__package__.split('.')[0]]
+    name = __package__.split('.')[:3]
+    name = '.'.join(name)
+    return bpy.context.preferences.addons[name]
 
 
 def get_preferences() -> "bpy.types.AddonPreferences":
