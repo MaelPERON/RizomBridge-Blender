@@ -106,7 +106,7 @@ def export_to_fbx(filepath: Path) -> bool:
             apply_unit_scale=True,
             bake_space_transform=False,
             object_types={'MESH'},
-            use_mesh_modifiers=True,
+            use_mesh_modifiers=False,
             mesh_smooth_type='OFF',
             use_mesh_edges=False,
             use_tspace=False,
