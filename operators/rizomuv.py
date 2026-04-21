@@ -125,6 +125,7 @@ class RB_RizomUV_Import(bpy.types.Operator):
             bpy.ops.uv.seams_from_islands(mark_seams=True, mark_sharp=False)
             bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
 
+            self.report({'INFO'}, "Import completed successfully.")
             return {'FINISHED'}
         except Exception as e:
             self.report({'ERROR'}, f"Import failed: {e}")
