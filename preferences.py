@@ -1,27 +1,32 @@
-﻿import bpy
+﻿"""Addon preferences for RizomBridge."""
 
-class EnsiToolPreferences(bpy.types.AddonPreferences):
+import bpy
+
+
+class RB_Preferences(bpy.types.AddonPreferences):
+    """RizomBridge addon preferences."""
+
     bl_idname = __package__
 
-    rizom_path: bpy.props.StringProperty(
-        name="Rizom Path",
+    rizom_path: bpy.props.StringProperty(  # type: ignore
+        name="RizomUV Path",
         subtype="FILE_PATH",
         description="Path to the RizomUV executable"
     )
 
-    export_folder: bpy.props.StringProperty(
+    export_folder: bpy.props.StringProperty(  # type: ignore
         name="Export Folder",
         subtype="DIR_PATH",
-        description="Path to the export folder"
+        description="Path to the export folder for RizomUV FBX files"
     )
 
-    save_before_export: bpy.props.BoolProperty(
+    save_before_export: bpy.props.BoolProperty(  # type: ignore
         name="Auto-Save Before Export",
-        description="Save the file before exporting",
+        description="Save the blend file before exporting to RizomUV",
         default=True
     )
 
-    forward_axis: bpy.props.EnumProperty(
+    forward_axis: bpy.props.EnumProperty(  # type: ignore
         name="Forward Axis",
         description="Forward axis for the FBX export",
         items=[
@@ -35,7 +40,7 @@ class EnsiToolPreferences(bpy.types.AddonPreferences):
         default="-Z"
     )
 
-    up_axis: bpy.props.EnumProperty(
+    up_axis: bpy.props.EnumProperty(  # type: ignore
         name="Up Axis",
         description="Up axis for the FBX export",
         items=[
@@ -49,7 +54,8 @@ class EnsiToolPreferences(bpy.types.AddonPreferences):
         default="Y"
     )
 
-    def draw(self, context):
+    def draw(self, context: bpy.types.Context) -> None:
+        """Draw the preferences panel."""
         layout = self.layout
         layout.prop(self, "rizom_path")
         layout.prop(self, "export_folder")
@@ -57,8 +63,12 @@ class EnsiToolPreferences(bpy.types.AddonPreferences):
         layout.prop(self, "forward_axis")
         layout.prop(self, "up_axis")
 
-def register():
-    bpy.utils.register_class(EnsiToolPreferences)
 
-def unregister():
-    bpy.utils.unregister_class(EnsiToolPreferences)
+def register() -> None:
+    """Register preferences class."""
+    bpy.utils.register_class(RB_Preferences)
+
+
+def unregister() -> None:
+    """Unregister preferences class."""
+    bpy.utils.unregister_class(RB_Preferences)
