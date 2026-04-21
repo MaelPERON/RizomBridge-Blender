@@ -12,13 +12,16 @@ description = "Export Blender objects to RizomUV for UV unwrapping"
 
 blender_version_min = "4.2.1"
 
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
+
 permissions = []
 
-resources = {
-    "homepage": "https://github.com/MaelPERON/RizomBridge-Blender",
-    "bug_tracker": "https://github.com/MaelPERON/RizomBridge-Blender/issues",
-    "source_code": "https://github.com/MaelPERON/RizomBridge-Blender",
-}
+[resources]
+homepage = "https://github.com/MaelPERON/RizomBridge-Blender"
+bug_tracker = "https://github.com/MaelPERON/RizomBridge-Blender/issues"
+source_code = "https://github.com/MaelPERON/RizomBridge-Blender"
 
 tags = [
     "Import-Export",
