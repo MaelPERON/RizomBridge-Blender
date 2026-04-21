@@ -6,9 +6,9 @@ type = "add-on"
 
 maintainer = "MaelPERON"
 original_author = "Renaux Alexandre (@sky-ark)"
-name = "ENSI Tool Addon"
-tagline = "A simple tool to export objects to RizomUV"
-description = "Export Blender objects to RizomUV for UV unwrapping"
+name = "RizomBridge"
+tagline = "Bridge between Blender and RizomUV for efficient UV unwrapping"
+description = "Export Blender objects to RizomUV for UV unwrapping and import optimized UV maps back"
 
 blender_version_min = "4.2.1"
 
