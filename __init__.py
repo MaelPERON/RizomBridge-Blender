@@ -1,6 +1,8 @@
 # Based on original work by Renaux Alexandre (@sky-ark)
 # Forked and maintained by MaelPERON
 
+from . import auto_load
+
 bl_info = {
     "name": "ENSI Tool Addon",
     "description": "A simple tool to export objects to RizomUV",
@@ -12,18 +14,13 @@ bl_info = {
     "doc_url": "https://github.com/MaelPERON/RizomBridge-Blender",
 }
 
-import bpy
-from . import operators, panels, preferences
+auto_load.init()
+
 
 def register():
-    operators.register()
-    panels.register()
-    preferences.register()
+    auto_load.register()
+    print("Blender_ensi registered.")
+
 
 def unregister():
-    operators.unregister()
-    panels.unregister()
-    preferences.unregister()
-
-if __name__ == "__main__":
-    register()
+    auto_load.unregister()
