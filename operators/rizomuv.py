@@ -12,6 +12,9 @@ from ..utils.export import (
 from ..utils.preferences import get_preferences
 
 
+SUFFIX = "_ruv"
+
+
 class RB_RizomUV_Export(bpy.types.Operator):
     """Export the selected object to RizomUV."""
 
@@ -34,9 +37,16 @@ class RB_RizomUV_Export(bpy.types.Operator):
         if not export_file:
             return {'CANCELLED'}
 
+        for obj in context.selected_objects:
+            obj.name += SUFFIX
+
         if not export_to_fbx(export_file):
             self.report({'ERROR'}, "Failed to export FBX file.")
             return {'CANCELLED'}
+
+        for obj in context.selectable_objects:
+            if obj.name.endswith(SUFFIX):
+                obj.name = obj.name[:-len(SUFFIX)]
 
         prefs = get_preferences()
         rizom_path = prefs.rizom_path
