@@ -17,11 +17,20 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
         """Draw the main tool panel."""
         layout = self.layout
         prefs = get_preferences()
+        has_rizom_path = (prefs.get("rizom_path") != "")
+        has_folder_path = (prefs.get("export_folder") != "")
 
         # Display configuration options
         layout.label(text="Configuration")
-        layout.prop(prefs, "rizom_path")
-        layout.prop(prefs, "export_folder")
+        #   Rizom Path
+        row = layout.row()
+        row.alert = not has_rizom_path
+        row.prop(prefs, "rizom_path")
+        #   Export folder
+        row = layout.row()
+        row.alert = not has_folder_path
+        row.prop(prefs, "export_folder")
+        # Save before export
         layout.prop(prefs, "save_before_export")
 
         # Display export settings
@@ -32,8 +41,14 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
         # Display action buttons
         layout.separator()
         layout.label(text="Actions")
-        layout.operator("object.rizomuv_export", text="Export to RizomUV")
-        layout.operator("object.rizomuv_import", text="Import from RizomUV")
+        #   Export
+        row = layout.row()
+        row.enabled = has_rizom_path and has_folder_path
+        row.operator("object.rizomuv_export", text="Export to RizomUV")
+        #   Import
+        row = layout.row()
+        row.enabled = has_folder_path
+        row.operator("object.rizomuv_import", text="Import from RizomUV")
 
         # Link to project info
         layout.separator()
