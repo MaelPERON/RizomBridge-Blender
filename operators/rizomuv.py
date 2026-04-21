@@ -87,24 +87,43 @@ class RB_RizomUV_Import(bpy.types.Operator):
             return {'CANCELLED'}
 
         try:
+            objects_selected = bpy.context.selected_objects
             bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
             bpy.ops.import_scene.fbx(filepath=str(import_file))
 
-            obj_imported = context.selected_objects[0]
+            objects_imported = bpy.context.selected_objects
 
-            obj_imported.select_set(True)
-            obj_selected.select_set(True)
-            context.view_layer.objects.active = obj_imported
+            for obj_in in objects_imported:
+                obj_out = context.scene.objects.get(
+                    obj_in.name.replace(SUFFIX, "")
+                )
+                if not obj_out:
+                    self.report({"WARNING"}, f"Object {obj_in.name} not found in the scene.")  # noqa: E501
+                    continue
 
-            bpy.ops.object.join_uvs()
+                # Deselect all
+                bpy.ops.object.select_all(action='DESELECT')
+                # Select both objects
+                obj_in.select_set(True)
+                obj_out.select_set(True)
+                # Set obj_in as active
+                bpy.context.view_layer.objects.active = obj_in
 
-            obj_imported.select_set(False)
-            bpy.ops.object.delete()
+                # Join UVs
+                bpy.ops.object.join_uvs()
 
-            context.view_layer.objects.active = obj_selected
-            obj_selected.select_set(True)
+                # Deselect obj_in, select only obj_out for deletion
+                obj_out.select_set(False)
+                bpy.context.view_layer.objects.active = obj_out
+                bpy.ops.object.delete()
+
+            bpy.ops.object.select_all(action='DESELECT')
+            for obj in objects_selected:
+                obj.select_set(True)
 
             bpy.ops.object.mode_set(mode='EDIT', toggle=False)
+            bpy.ops.uv.seams_from_islands(mark_seams=True, mark_sharp=False)
+            bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
 
             return {'FINISHED'}
         except Exception as e:
