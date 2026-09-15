@@ -17,8 +17,8 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
         """Draw the main tool panel."""
         layout = self.layout
         prefs = get_preferences()
-        has_rizom_path = (prefs.get("rizom_path") != "")
-        has_folder_path = (prefs.get("export_folder") != "")
+        has_rizom_path = getattr(prefs, "rizom_path", "") != ""
+        has_folder_path = getattr(prefs, "export_folder", "") != ""
 
         # Display configuration options
         layout.label(text="Configuration")
