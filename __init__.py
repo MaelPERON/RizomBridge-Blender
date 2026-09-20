@@ -5,7 +5,7 @@ from . import auto_load
 
 bl_info = {
     "name": "ENSI Tool Addon",
-    "description": "A simple tool to export objects to RizomUV",
+    "description": "Bridge between Blender and RizomUV for efficient UV unwrapping",
     "author": "MaelPERON",
     "version": (0, 1, 0),
     "blender": (4, 2, 1),
