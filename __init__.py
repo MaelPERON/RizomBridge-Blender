@@ -4,7 +4,7 @@
 from . import auto_load
 
 bl_info = {
-    "name": "ENSI Tool Addon",
+    "name": "RizomBridge-Blender",
     "description": "Bridge between Blender and RizomUV for efficient UV unwrapping",
     "author": "MaelPERON, sky-ark",
     "version": (1, 0, 0),
@@ -19,7 +19,7 @@ auto_load.init()
 
 def register():
     auto_load.register()
-    print("Blender_ensi registered.")
+    print("RizomBridge-Blender registered.")
 
 
 def unregister():
