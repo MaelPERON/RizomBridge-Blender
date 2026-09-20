@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 
-id = "ensi_tool_addon"
+id = "rizom_bridge"
 version = "1.0.0"
 type = "add-on"
 
@@ -8,7 +8,7 @@ maintainer = "MaelPERON"
 original_author = "Renaux Alexandre (@sky-ark)"
 name = "RizomBridge"
 tagline = "Bridge between Blender and RizomUV for efficient UV unwrapping"
-description = "Export Blender objects to RizomUV for UV unwrapping and import optimized UV maps back"
+description = "Blender addon to fasten the UV unwrapping and packing through RizomUV back to Blender."
 
 blender_version_min = "4.2.1"
 
