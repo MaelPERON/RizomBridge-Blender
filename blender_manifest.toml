@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "ensi_tool_addon"
-version = "0.1.0"
+version = "1.0.0"
 type = "add-on"
 
 maintainer = "MaelPERON"

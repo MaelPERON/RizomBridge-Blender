@@ -7,7 +7,7 @@ bl_info = {
     "name": "ENSI Tool Addon",
     "description": "Bridge between Blender and RizomUV for efficient UV unwrapping",
     "author": "MaelPERON, sky-ark",
-    "version": (0, 1, 0),
+    "version": (1, 0, 0),
     "blender": (4, 2, 1),
     "category": "Import-Export",
     "location": "View3D > Sidebar",
