@@ -54,6 +54,20 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
         subrow.operator("object.rizomuv_import", text="Import from RizomUV",
                         icon="IMPORT")
 
+        wrap = layout.column()
+        wrap.alert = True
+        if not has_rizom_path:
+            wrap.label(
+                text="Missing RizomUV executable.",
+                icon="ERROR"
+            )
+
+        if not has_folder_path:
+            wrap.label(
+                text="Missing export folder.",
+                icon="ERROR"
+            )
+
         # Link to project info
         layout.separator()
         layout.operator(
