@@ -41,14 +41,18 @@ class RB_VIEW3D_PT_RizomBridge_Main(bpy.types.Panel):
         # Display action buttons
         layout.separator()
         layout.label(text="Actions")
+        row = layout.row()
+        row.scale_y = 2
         #   Export
-        row = layout.row()
-        row.enabled = has_rizom_path and has_folder_path
-        row.operator("object.rizomuv_export", text="Export to RizomUV")
+        subrow = row.row()
+        subrow.enabled = has_rizom_path and has_folder_path
+        subrow.operator("object.rizomuv_export", text="Export to RizomUV",
+                        icon="EXPORT")
         #   Import
-        row = layout.row()
-        row.enabled = has_folder_path
-        row.operator("object.rizomuv_import", text="Import from RizomUV")
+        subrow = row.row()
+        subrow.enabled = has_folder_path
+        subrow.operator("object.rizomuv_import", text="Import from RizomUV",
+                        icon="IMPORT")
 
         # Link to project info
         layout.separator()
